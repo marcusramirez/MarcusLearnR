@@ -1,6 +1,8 @@
 ---
 title: "Assignment 1"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ### R and R-Studio
@@ -17,14 +19,14 @@ This assignment is due on Canvas on Monday 9/20 before class, at 10:15 am. Inclu
 Install the datasets package on the console below using `install.packages("datasets")`. Now load the library.
 Answer: I've loaded the library.
 ```{r}
-
+library(datasets)
 ```
 
 Load the USArrests dataset and rename it `dat`. Note that this dataset comes with R, in the package datasets, so there's no need to load data from your computer. Why is it useful to rename the dataset?
-dat <- USArrests #renaming the data
+
 Answer: It is useful to rename a dataset for our data analysis because we will be replicating analyses. This way we can separate the original file from our revised file easily by name.
 ```{r}
-
+dat <- USArrests #renaming the data
 ```
 
 ### Problem 2
@@ -41,7 +43,7 @@ This dataset has the state names as row names, so we just want to make them into
 List the variables contained in the dataset `USArrests`.
 Answer: The variables contained are Murder, Assault, UrbanPop, Rape.
 ```{r}
-
+names(dat)
 ```
 
 ### Problem 3 
@@ -67,6 +69,7 @@ Draw a histogram of `Murder` with proper labels and title.
 hist(dat$Murder, main="Histogram of Murder", xlab="Murder Rate", ylab="Number of States")
 
 ```{r}
+hist(dat$Murder, main="Histogram of Murder", xlab="Murder Rate", ylab="Number of States")
 
 ```
 
@@ -87,19 +90,20 @@ Quartiles are the three values which divide the data into equal fourths. R gives
 
 Repeat the same steps you followed for `Murder`, for the variables `Assault` and `Rape`. Now plot all three histograms together. You can do this by using the command `par(mfrow=c(3,1))` and then plotting each of the three. 
 
-hist(dat$Assault, main="Histogram of Assault", xlab="Assault Rate", ylab="Number of States")
 The mean for assault is 170.8 and the median for assault is 159.0.
 
-hist(dat$Rape, main="Histogram of Rape", xlab="Rape Rate", ylab="Number of States")
 The mean for rape is 21.23 and the median for rape is 20.10.
 
-par(mfrow=c(3,1))
-hist(dat$Murder, main="Histogram of Murder", xlab="Murder Rate", ylab="Number of States") 
-hist(dat$Assault, main="Histogram of Assault", xlab="Assault Rate", ylab="Number of States") 
-hist(dat$Rape, main="Histogram of Rape", xlab="Rape Rate", ylab="Number of States")
 
 ```{r, echo = TRUE, fig.width = 5, fig.height = 8}
+hist(dat$Assault, main="Histogram of Assault", xlab="Assault Rate", ylab="Number of States")
 
+hist(dat$Rape, main="Histogram of Rape", xlab="Rape Rate", ylab="Number of States")
+
+par(mfrow=c(3,1))
+hist(dat$Murder, main="Histogram of Murder", xlab="Murder Rate", ylab="Number of States")
+hist(dat$Assault, main="Histogram of Assault", xlab="Assault Rate", ylab="Number of States") 
+hist(dat$Rape, main="Histogram of Rape", xlab="Rape Rate", ylab="Number of States")
 ```
 
 What does the command par do, in your own words (you can look this up by asking R `?par`)?
@@ -117,12 +121,12 @@ In the console below (not in text), type `install.packages("maps")` and press En
 Run this code:
 
 ```{r, eval = FALSE, fig.width = 7.5, fig.height = 4}
-library('maps') 
-library('ggplot2') 
+library(maps) 
+library(ggplot2) 
 
 ggplot(dat, aes(map_id=state, fill=Murder)) + 
-  geom_map(map=map_data("state")) + 
-  expand_limits(x=map_data("state")$long, y=map_data("state")$lat)
+  geom_map(map=map_data(state)) + 
+  expand_limits(x=map_data(state)$long, y=map_data(state)$lat)
 ```
 
 What does this code do? Explain what each line is doing.
