@@ -292,7 +292,7 @@ $(document).ready(function () {
 <p>dat$state &lt;- tolower(rownames(USArrests)) This dataset has the state names as row names, so we just want to make them into a new variable. We also make them all lower case, because that will help us draw a map later - the map function requires the states to be lower case.</p>
 <p>List the variables contained in the dataset <code>USArrests</code>. Answer: The variables contained are Murder, Assault, UrbanPop, Rape.</p>
 <pre class="r"><code>names(dat)</code></pre>
-<pre><code>## [1] &quot;Murder&quot;   &quot;Assault&quot;  &quot;UrbanPop&quot; &quot;Rape&quot;</code></pre>
+<pre><code>## [1] &quot;Murder&quot;   &quot;Assault&quot;  &quot;UrbanPop&quot; &quot;Rape&quot;     &quot;state&quot;</code></pre>
 </div>
 <div id="problem-3" class="section level3">
 <h3>Problem 3</h3>
@@ -344,8 +344,9 @@ hist(dat$Rape, main=&quot;Histogram of Rape&quot;, xlab=&quot;Rape Rate&quot;, y
 library(ggplot2) 
 
 ggplot(dat, aes(map_id=state, fill=Murder)) + 
-  geom_map(map=map_data(state)) + 
-  expand_limits(x=map_data(state)$long, y=map_data(state)$lat)</code></pre>
+  geom_map(map=map_data(&quot;state&quot;)) + 
+  expand_limits(x=map_data(&quot;state&quot;)$long, y=map_data(&quot;state&quot;)$lat)</code></pre>
+<p><img src="Assignment1_files/figure-html/unnamed-chunk-8-1.png" width="720" /></p>
 <p>What does this code do? Explain what each line is doing.</p>
 <p>Answer: This code creates a map of crime rates among the 50 U.S. states, specfically murder. The first line indicates we want to create a ggplot based on USArrests; the aesthetic function indicates which variables we want to be plotted (like murder) and how to present them. The second line indicates that the graphical representation will be a map using the data on states. The third line indicates what data should be plotted on the x and y positions of the graphical depiction respectively.</p>
 </div>

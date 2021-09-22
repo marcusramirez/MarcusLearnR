@@ -33,7 +33,7 @@ dat <- USArrests #renaming the data
 
 Use this command to make the state names into a new variable called State. 
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 dat$state <- tolower(rownames(USArrests))
 ```
 dat$state <- tolower(rownames(USArrests))
@@ -120,13 +120,13 @@ In the console below (not in text), type `install.packages("maps")` and press En
 
 Run this code:
 
-```{r, eval = FALSE, fig.width = 7.5, fig.height = 4}
+```{r, eval = TRUE, fig.width = 7.5, fig.height = 4}
 library(maps) 
 library(ggplot2) 
 
 ggplot(dat, aes(map_id=state, fill=Murder)) + 
-  geom_map(map=map_data(state)) + 
-  expand_limits(x=map_data(state)$long, y=map_data(state)$lat)
+  geom_map(map=map_data("state")) + 
+  expand_limits(x=map_data("state")$long, y=map_data("state")$lat)
 ```
 
 What does this code do? Explain what each line is doing.
