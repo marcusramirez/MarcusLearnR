@@ -19,7 +19,7 @@ output: html_document
 
 # **About**
 
- This website is meant to document different assignments and exams completed in or out of the classroom. This way, as the class progresses, we can keep a record of our data analysis as well as how our worked looked like in its original form (or any edits we made to it). This will be useful as we continue to develop analytic strategies and provides points of reference when we face new challenges in RStudio or in our exploratory data analysis.
+This website is meant to document different assignments and exams completed in or out of the classroom. This way, as the class progresses, we can keep a record of our data analysis as well as how our worked looked like in its original form (or any edits we made to it). This will be useful as we continue to develop analytic strategies and provides points of reference when we face new challenges in RStudio or in our exploratory data analysis.
 
 ## How to use
 

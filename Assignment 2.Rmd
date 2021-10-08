@@ -41,7 +41,7 @@ The purpose of this generating this data was to form more general conclusions ab
 summary(dat1)
 
 ```{r Histogram}
-hist(dat$AGE2, main="Histogram of AGE2", xlab="Code", ylab="Frequency")
+hist(dat1$AGE2, main="Histogram of AGE2", xlab="Code", ylab="Frequency")
 ```
 The age distribution is skewed left with older respondents tending to be more common. The median of the distribution is 14 which indicates respondents between 30 and 34 years old in the codebook. The mean is about 13 which indicates respondants between 26 and 29 years old in the codebook.
 # Do you think this age distribution representative of the US population? Why or why  not?
