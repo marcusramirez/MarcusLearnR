@@ -286,9 +286,8 @@ $(document).ready(function () {
 <div id="instructions-copy-your-code-paste-it-into-a-word-document-and-turn-it-into-canvas.-you-can-turn-in-a-.docx-or-.pdf-file.-show-any-eda-graphical-or-non-graphical-you-have-used-to-come-to-this-conclusion." class="section level3">
 <h3>Instructions: Copy your code, paste it into a Word document, and turn it into Canvas. You can turn in a .docx or .pdf file. Show any EDA (graphical or non-graphical) you have used to come to this conclusion.</h3>
 </div>
-</div>
-<div id="problem-1-load-data" class="section level1">
-<h1>Problem 1: Load data</h1>
+<div id="problem-1-load-data" class="section level3">
+<h3>Problem 1: Load data</h3>
 <p>Answer: I’ve loaded the data.</p>
 <pre class="r"><code>library(readr)
 dat_nsduh_small_1 &lt;- read_csv(&quot;~/Downloads/dat.nsduh.small.1.csv&quot;)</code></pre>
@@ -299,13 +298,9 @@ dat_nsduh_small_1 &lt;- read_csv(&quot;~/Downloads/dat.nsduh.small.1.csv&quot;)<
 <pre><code>## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div id="set-your-working-directory-to-the-folder-where-you-downloaded-the-data." class="section level1">
-<h1>Set your working directory to the folder where you downloaded the data.</h1>
+<p>Set your working directory to the folder where you downloaded the data.</p>
 <pre class="r"><code>setwd(&quot;/Users/cruzllano/Documents/R/&quot;)</code></pre>
-</div>
-<div id="read-the-data" class="section level1">
-<h1>Read the data</h1>
+<p>Read the data</p>
 <pre class="r"><code>dat2 &lt;- read_csv(&quot;~/Downloads/dat.nsduh.small.1.csv&quot;)</code></pre>
 <pre><code>## Rows: 171 Columns: 7</code></pre>
 <pre><code>## ── Column specification ────────────────────────────────────────────────────────
@@ -314,9 +309,7 @@ dat_nsduh_small_1 &lt;- read_csv(&quot;~/Downloads/dat.nsduh.small.1.csv&quot;)<
 <pre><code>## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div id="what-are-the-dimensions-of-the-dataset" class="section level1">
-<h1>What are the dimensions of the dataset?</h1>
+<p>What are the dimensions of the dataset?</p>
 <pre class="r"><code>dim(dat2)</code></pre>
 <pre><code>## [1] 171   7</code></pre>
 <p>Answer: The dimensions of the dataset are 171 by 7.</p>
@@ -324,42 +317,29 @@ dat_nsduh_small_1 &lt;- read_csv(&quot;~/Downloads/dat.nsduh.small.1.csv&quot;)<
 <pre class="r"><code>names(dat2)</code></pre>
 <pre><code>## [1] &quot;mjage&quot;     &quot;cigage&quot;    &quot;iralcage&quot;  &quot;age2&quot;      &quot;sexatract&quot; &quot;speakengl&quot;
 ## [7] &quot;irsex&quot;</code></pre>
-<div id="problem-2-variables" class="section level2">
-<h2>Problem 2: Variables</h2>
 </div>
-</div>
-<div id="describe-the-variables-in-the-dataset." class="section level1">
-<h1>Describe the variables in the dataset.</h1>
+<div id="problem-2-variables" class="section level3">
+<h3>Problem 2: Variables</h3>
+<p>Describe the variables in the dataset.</p>
 <p>Answer: The varibles in this dataset are mjage, cigage, iralcage, age2, sexatract, speakengl, and irsex. Mjage describes how old someone was when they first used marijuana or hashish. Cigage describes how old someone was when they first started smoking cigarettes everyday. Iralcage describes how old someone was when they first tried alcochol. AGE2 describes the final edited age of the respondant. Sexatract describes a respondant’s sexual attraction to others. Speakengl describes how well someone speaks English. Irsex describes someone’s gender.</p>
+<p>What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data?</p>
+<p>Answer: This dataset is about the age at which individuals of varying ages, sexual orientations, genders, and English proficiencies first began experimenting or using particular drugs (including but not limited to marijuana, cigarettes, and alcohol). The data was collected by the National Survey on Drug Use and Health. This is a simple random sample as the first 1000 cases were choosen. The purpose of this generating this data was to form more general conclusions about the population from the sample, pertaining to drug use. This way, the NSDUH can better predict where to provide support prevention and monitor substance use trends.</p>
 </div>
-<div id="what-is-this-dataset-about-who-collected-the-data-what-kind-of-sample-is-it-and-what-was-the-purpose-of-generating-the-data" class="section level1">
-<h1>What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data?</h1>
-<p>This dataset is about the age at which individuals of varying ages, sexual orientations, genders, and English proficiencies first began experimenting or using particular drugs (including but not limited to marijuana, cigarettes, and alcohol). The data was collected by the National Survey on Drug Use and Health. This is a simple random sample as the first 1000 cases were choosen. The purpose of this generating this data was to form more general conclusions about the population from the sample, pertaining to drug use. This way, the NSDUH can better predict where to provide support prevention and monitor substance use trends.</p>
-<div id="problem-3-age-and-gender" class="section level2">
-<h2>Problem 3: Age and gender</h2>
-</div>
-</div>
-<div id="what-is-the-age-distribution-of-the-sample-like-make-sure-you-read-the-codebook-to-know-what-the-variable-values-mean." class="section level1">
-<h1>What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.</h1>
-<p>summary(dat2)</p>
+<div id="problem-3-age-and-gender" class="section level3">
+<h3>Problem 3: Age and gender</h3>
+<p>What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean. summary(dat2)</p>
 <pre class="r"><code>hist(dat2$age2, main=&quot;Histogram of AGE2&quot;, xlab=&quot;Code&quot;, ylab=&quot;Frequency&quot;)</code></pre>
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Answer: The age distribution is skewed left with older respondents tending to be more common. The median of the distribution is 15 which indicates respondents between 35 and 49 years old in the codebook. The mean is about 14 which indicates respondents between 30 and 34 years old in the codebook.</p>
-</div>
-<div id="do-you-think-this-age-distribution-representative-of-the-us-population-why-or-why-not" class="section level1">
-<h1>Do you think this age distribution representative of the US population? Why or why not?</h1>
+<p>Do you think this age distribution representative of the US population? Why or why not?</p>
 <p>Answer: This age distribution seems representative of the US population because the median would indicate about half of the respondents are under 35 years old and half are above 49 years old (30-35 is typically defined as middle-aged). Also, the extremes of the data (12 years old and 65 years or older) are the lowest represented in the histogram which would make sense.</p>
-</div>
-<div id="is-the-sample-balanced-in-terms-of-gender-if-not-are-there-more-females-or-males" class="section level1">
-<h1>Is the sample balanced in terms of gender? If not, are there more females or males?</h1>
+<p>Is the sample balanced in terms of gender? If not, are there more females or males?</p>
 <pre class="r"><code>table(dat2$irsex)</code></pre>
 <pre><code>## 
 ##  1  2 
 ## 91 80</code></pre>
 <p>Answer: The sample is nearly balanced in terms of gender, there are 11 more males than females in the sample, however.</p>
-</div>
-<div id="use-this-code-to-draw-a-stacked-bar-plot-to-view-the-relationship-between-sex-and-age.-what-can-you-conclude-from-this-plot" class="section level1">
-<h1>Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?</h1>
+<p>Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?</p>
 <pre class="r"><code>tab.agesex &lt;- table(dat2$irsex, dat2$age2)
 barplot(tab.agesex,
         main = &quot;Stacked barchart&quot;,
@@ -368,12 +348,10 @@ barplot(tab.agesex,
         beside = TRUE) # Stacked bars (default)</code></pre>
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>Answer: From this plot I can conclude that generally, there were more male resondents. Also, that older respondents, particularly those 26 years and older were typically more likely to be male than female. There may be a direct relationship, such that as age increased the likelihood of a respondent being male increased.</p>
-<div id="problem-4-substance-use" class="section level2">
-<h2>Problem 4: Substance use</h2>
 </div>
-</div>
-<div id="for-which-of-the-three-substances-included-in-the-dataset-marijuana-alcohol-and-cigarettes-do-individuals-tend-to-use-the-substance-earlier" class="section level1">
-<h1>For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?</h1>
+<div id="problem-4-substance-use" class="section level3">
+<h3>Problem 4: Substance use</h3>
+<p>For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?</p>
 <pre class="r"><code>summary(dat2)</code></pre>
 <pre><code>##      mjage           cigage         iralcage          age2      
 ##  Min.   : 7.00   Min.   :10.00   Min.   : 5.00   Min.   : 4.00  
@@ -390,20 +368,16 @@ barplot(tab.agesex,
 ##  3rd Qu.: 1.00   3rd Qu.:1.00   3rd Qu.:2.000  
 ##  Max.   :99.00   Max.   :3.00   Max.   :2.000</code></pre>
 <p>Answer: According to the data, individuals tend to use alcohol earlier because the data for alcohol has the lowest mean, median, mean, and maximum as well for the different substances recorded. The measures of central tendency being the lowest (relatively) would indicate that alcohol is used earlier compared to the other subtances recorded.</p>
-<div id="problem-5-sexual-attraction" class="section level2">
-<h2>Problem 5: Sexual attraction</h2>
 </div>
-</div>
-<div id="what-does-the-distribution-of-sexual-attraction-look-like-is-this-what-you-expected" class="section level1">
-<h1>What does the distribution of sexual attraction look like? Is this what you expected?</h1>
+<div id="problem-5-sexual-attraction" class="section level3">
+<h3>Problem 5: Sexual attraction</h3>
+<p>What does the distribution of sexual attraction look like? Is this what you expected?</p>
 <pre class="r"><code>table(dat2$sexatract)</code></pre>
 <pre><code>## 
 ##   1   2   3   4   5   6  99 
 ## 136  16   9   3   3   1   3</code></pre>
 <p>Answer: The distribution is skewed right which is what I expected since only being attracted to the opposite sex (code 1) is most common. As the code numbers increased from 1 to 6, there was less strict of an attraction to the opposite sex and more openness to attraction to the same sex, so this distribution is consistent with my expectations of bisexuality and homosexuality not being as common.</p>
-</div>
-<div id="what-is-the-distribution-of-sexual-attraction-by-gender" class="section level1">
-<h1>What is the distribution of sexual attraction by gender?</h1>
+<p>What is the distribution of sexual attraction by gender?</p>
 <pre class="r"><code>tab.agesex &lt;- table(dat2$irsex, dat2$sexatract)
 barplot(tab.agesex,
         main = &quot;Comparing Sexual Attraction &amp; Gender&quot;,
@@ -412,20 +386,16 @@ barplot(tab.agesex,
         beside = TRUE) # Stacked bars (default)</code></pre>
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>Answer: It looks like the highest distribution is associated with respondents only attracted to the opposite sex (this graph would be skewed right). Females tend to show more variability in sexual attraction than males (there’s more female respondents for categories representing those mostly attracted to opposite sex, bisexual, or mostly attracted to the same sex). You can likely conclude from this sample, that the population is composed of a greater number of heterosexual males.</p>
-<div id="problem-6-english-speaking" class="section level2">
-<h2>Problem 6: English speaking</h2>
 </div>
-</div>
-<div id="what-does-the-distribution-of-english-speaking-look-like-in-the-sample-is-this-what-you-might-expect-for-a-random-sample-of-the-us-population" class="section level1">
-<h1>What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?</h1>
+<div id="problem-6-english-speaking" class="section level3">
+<h3>Problem 6: English speaking</h3>
+<p>What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?</p>
 <pre class="r"><code>table(dat2$speakengl)</code></pre>
 <pre><code>## 
 ##   1   2   3 
 ## 161   8   2</code></pre>
 <p>Answer: The distribution isn’t widely spread out as 161/171 respondents had the same response about how well they spoke English (“very well”). It would look skewed right. This is what I might expect since English is the most spoken language in the world, so a random sample US population should be representative of that.</p>
-</div>
-<div id="are-there-more-english-speaker-females-or-males" class="section level1">
-<h1>Are there more English speaker females or males?</h1>
+<p>Are there more English speaker females or males?</p>
 <pre class="r"><code>tab.agesex &lt;- table(dat2$irsex, dat2$speakengl)
 barplot(tab.agesex,
         main = &quot;Comparing English Speaking &amp; Gender&quot;,
@@ -434,6 +404,7 @@ barplot(tab.agesex,
         beside = TRUE) # Stacked bars (default)</code></pre>
 <p><img src="Assignment2_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>Answer: There are more English speaker males since code 1 represents “very well” at English speaking and code 2 represents “well” at English speaking. Code 3 represents “not well” and includes more female respondents.</p>
+</div>
 </div>
 
 

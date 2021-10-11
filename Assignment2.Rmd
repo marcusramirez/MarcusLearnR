@@ -18,20 +18,20 @@ library(readr)
 dat_nsduh_small_1 <- read_csv("~/Downloads/dat.nsduh.small.1.csv")
 ```
 
-# Set your working directory to the folder where you downloaded the data.
+Set your working directory to the folder where you downloaded the data.
 ```{r}
 setwd("/Users/cruzllano/Documents/R/")
 
 ```
 
-# Read the data
+Read the data
 ```{r}
 dat2 <- read_csv("~/Downloads/dat.nsduh.small.1.csv")
 
 ```
 
 
-# What are the dimensions of the dataset? 
+What are the dimensions of the dataset? 
 ```{r}
 dim(dat2)
 
@@ -47,10 +47,12 @@ names(dat2)
 ### Problem 2: Variables
 
 Describe the variables in the dataset.
+
 Answer: The varibles in this dataset are mjage, cigage, iralcage, age2, sexatract, speakengl, and irsex. Mjage describes how old someone was when they first used marijuana or hashish. Cigage describes how old someone was when they first started smoking cigarettes everyday. Iralcage describes how old someone was when they first tried alcochol. AGE2 describes the final edited age of the respondant. Sexatract describes a respondant's sexual attraction to others. Speakengl describes how well someone speaks English. Irsex describes someone's gender.
 
 What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data?
-This dataset is about the age at which individuals of varying ages, sexual orientations, genders, and English proficiencies first began experimenting or using particular drugs (including but not limited to marijuana, cigarettes, and alcohol).
+
+Answer: This dataset is about the age at which individuals of varying ages, sexual orientations, genders, and English proficiencies first began experimenting or using particular drugs (including but not limited to marijuana, cigarettes, and alcohol).
 The data was collected by the National Survey on Drug Use and Health. This is a simple random sample as the first 1000 cases were choosen.
 The purpose of this generating this data was to form more general conclusions about the population from the sample, pertaining to drug use. This way, the NSDUH can better predict where to provide support prevention and monitor substance use trends.
 
@@ -68,6 +70,7 @@ hist(dat2$age2, main="Histogram of AGE2", xlab="Code", ylab="Frequency")
 Answer: The age distribution is skewed left with older respondents tending to be more common. The median of the distribution is 15 which indicates respondents between 35 and 49 years old in the codebook. The mean is about 14 which indicates respondents between 30 and 34 years old in the codebook.
 
 Do you think this age distribution representative of the US population? Why or why  not?
+
 Answer: This age distribution seems representative of the US population because the median would indicate about half of the respondents are under 35 years old and half are above 49 years old (30-35 is typically defined as middle-aged). Also, the extremes of the data (12 years old and 65 years or older) are the lowest represented in the histogram which would make sense.
 
 Is the sample balanced in terms of gender? If not, are there more females or males?
@@ -76,7 +79,7 @@ table(dat2$irsex)
 ```
 Answer: The sample is nearly balanced in terms of gender, there are 11 more males than females in the sample, however.
 
-# Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?
+Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?
 ```{r}
 tab.agesex <- table(dat2$irsex, dat2$age2)
 barplot(tab.agesex,
