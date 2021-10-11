@@ -11,7 +11,7 @@ output:
 ### Instructions: Copy your code, paste it into a Word document, and turn it into Canvas. You can turn in a .docx or .pdf file. Show any EDA (graphical or non-graphical) you have used to come to this conclusion.
 
 
-# Problem 1: Load data
+### Problem 1: Load data
 Answer: I've loaded the data.
 ```{r}
 library(readr)
@@ -44,20 +44,20 @@ names(dat2)
 
 ```
 
-## Problem 2: Variables
+### Problem 2: Variables
 
-# Describe the variables in the dataset.
+Describe the variables in the dataset.
 Answer: The varibles in this dataset are mjage, cigage, iralcage, age2, sexatract, speakengl, and irsex. Mjage describes how old someone was when they first used marijuana or hashish. Cigage describes how old someone was when they first started smoking cigarettes everyday. Iralcage describes how old someone was when they first tried alcochol. AGE2 describes the final edited age of the respondant. Sexatract describes a respondant's sexual attraction to others. Speakengl describes how well someone speaks English. Irsex describes someone's gender.
 
-# What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data?
+What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data?
 This dataset is about the age at which individuals of varying ages, sexual orientations, genders, and English proficiencies first began experimenting or using particular drugs (including but not limited to marijuana, cigarettes, and alcohol).
 The data was collected by the National Survey on Drug Use and Health. This is a simple random sample as the first 1000 cases were choosen.
 The purpose of this generating this data was to form more general conclusions about the population from the sample, pertaining to drug use. This way, the NSDUH can better predict where to provide support prevention and monitor substance use trends.
 
 
-## Problem 3: Age and gender
+### Problem 3: Age and gender
 
-# What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.
+What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.
 summary(dat2)
 ```{r}
 
@@ -67,10 +67,10 @@ hist(dat2$age2, main="Histogram of AGE2", xlab="Code", ylab="Frequency")
 
 Answer: The age distribution is skewed left with older respondents tending to be more common. The median of the distribution is 15 which indicates respondents between 35 and 49 years old in the codebook. The mean is about 14 which indicates respondents between 30 and 34 years old in the codebook.
 
-# Do you think this age distribution representative of the US population? Why or why  not?
+Do you think this age distribution representative of the US population? Why or why  not?
 Answer: This age distribution seems representative of the US population because the median would indicate about half of the respondents are under 35 years old and half are above 49 years old (30-35 is typically defined as middle-aged). Also, the extremes of the data (12 years old and 65 years or older) are the lowest represented in the histogram which would make sense.
 
-# Is the sample balanced in terms of gender? If not, are there more females or males?
+Is the sample balanced in terms of gender? If not, are there more females or males?
 ```{r}
 table(dat2$irsex)
 ```
@@ -90,9 +90,9 @@ Answer: From this plot I can conclude that generally, there were more male reson
 
 
 
-## Problem 4: Substance use
+### Problem 4: Substance use
 
-# For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?
+For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?
 ```{r}
 summary(dat2)
 ```
@@ -100,16 +100,16 @@ summary(dat2)
 Answer: According to the data, individuals tend to use alcohol earlier because the data for alcohol has the lowest mean, median, mean, and maximum as well for the different substances recorded. The measures of central tendency being the lowest (relatively) would indicate that alcohol is used earlier compared to the other subtances recorded.
 
 
-## Problem 5: Sexual attraction
+### Problem 5: Sexual attraction
 
-# What does the distribution of sexual attraction look like? Is this what you expected?
+What does the distribution of sexual attraction look like? Is this what you expected?
 ```{r}
 table(dat2$sexatract)
 ```
 Answer: The distribution is skewed right which is what I expected since only being attracted to the opposite sex (code 1) is most common. As the code numbers increased from 1 to 6, there was less strict of an attraction to the opposite sex and more openness to attraction to the same sex, so this distribution is consistent with my expectations of bisexuality and homosexuality not being as common.
 
 
-# What is the distribution of sexual attraction by gender? 
+What is the distribution of sexual attraction by gender? 
 ```{r}
 tab.agesex <- table(dat2$irsex, dat2$sexatract)
 barplot(tab.agesex,
@@ -123,16 +123,16 @@ Answer: It looks like the highest distribution is associated with respondents on
 
 
 
-## Problem 6: English speaking
+### Problem 6: English speaking
 
-# What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?
+What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?
 ```{r}
 table(dat2$speakengl)
 ```
 
 Answer: The distribution isn't widely spread out as 161/171 respondents had the same response about how well they spoke English ("very well"). It would look skewed right. This is what I might expect since English is the most spoken language in the world, so a random sample US population should be representative of that.
 
-# Are there more English speaker females or males?
+Are there more English speaker females or males?
 ```{r}
 tab.agesex <- table(dat2$irsex, dat2$speakengl)
 barplot(tab.agesex,
