@@ -4,12 +4,11 @@ output:
   html_document: default
 ---
 # Title: Assignment 2
-# Subtitle: Crim 250: Statistics for the Social Sciences
-# Name: Marcus Ramirez
-# Date: 09/23/2021
+### Subtitle: Crim 250: Statistics for the Social Sciences
+### Name: Marcus Ramirez Date: 09/23/2021
 
 
-# Instructions: Copy your code, paste it into a Word document, and turn it into Canvas. You can turn in a .docx or .pdf file. Show any EDA (graphical or non-graphical) you have used to come to this conclusion.
+### Instructions: Copy your code, paste it into a Word document, and turn it into Canvas. You can turn in a .docx or .pdf file. Show any EDA (graphical or non-graphical) you have used to come to this conclusion.
 
 
 # Problem 1: Load data

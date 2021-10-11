@@ -9,7 +9,7 @@ output:
 
 # Assignment 1
 
-**Collaborators: Lorem Ipsum. **
+
 
 This assignment is due on Canvas on Monday 9/20 before class, at 10:15 am. Include the name of anyone with whom you collaborated at the top of the assignment.
 
@@ -95,7 +95,7 @@ The mean for assault is 170.8 and the median for assault is 159.0.
 The mean for rape is 21.23 and the median for rape is 20.10.
 
 
-```{r, echo = TRUE, fig.width = 5, fig.height = 8}
+```{r, echo = TRUE, fig.width = 5, fig.height = 5}
 hist(dat$Assault, main="Histogram of Assault", xlab="Assault Rate", ylab="Number of States")
 
 hist(dat$Rape, main="Histogram of Rape", xlab="Rape Rate", ylab="Number of States")
