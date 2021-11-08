@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Assignment 4</title>
+
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Marcus' Site</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Assignments.html">Assignments</a>
+</li>
+<li>
+  <a href="Assignment1.html">Assignment 1</a>
+</li>
+<li>
+  <a href="Assignment2.html">Assignment 2</a>
+</li>
+<li>
+  <a href="Assignment3.html">Assignment 3</a>
+</li>
+<li>
+  <a href="Assignment4.html">Assignment 4</a>
+</li>
+<li>
+  <a href="Exam1.html">Exam 1</a>
+</li>
+<li>
+  <a href="Exam2.html">Exam 2</a>
+</li>
+<li>
+  <a href="Links.html">Links</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Assignment 4</h1>
+
+</div>
+
+
+<pre class="r"><code>library(tidyverse)</code></pre>
+<div id="data-visualization-article-notes" class="section level1">
+<h1>Data Visualization Article Notes:</h1>
+<pre class="r"><code>ggplot2::mpg</code></pre>
+<pre><code>## # A tibble: 234 × 11
+##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
+##    &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…
+##  2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…
+##  3 audi         a4           2    2008     4 manu… f        20    31 p     comp…
+##  4 audi         a4           2    2008     4 auto… f        21    30 p     comp…
+##  5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…
+##  6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…
+##  7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…
+##  8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…
+##  9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…
+## 10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…
+## # … with 224 more rows</code></pre>
+<p>-data frame found in ggplot2 (a rectangular collection of variables &amp; observations) -mpg contains observations collected on diff. models of cars</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy))</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = mpg)</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-3-2.png" width="672" /> -plot mpg &amp; specify what’s on each axis -ggplot(data=mpg) creates an empty graph but u have to add layers -geom_point() adds layer of points to plot (creates scatterplot)</p>
+<p>CODE PRESET: ggplot(data = <DATA>) + <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>)) -replace bracketed sections in code below w/ dataset -aesthetic: visual property of objects in plot (size, shape, color, etc.) -&gt; referred to as level</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = class))</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-4-1.png" width="672" /> -maps the colors of each point to the class variable (reveals class of each car)</p>
+<pre class="r"><code># Left
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, alpha = class))</code></pre>
+<pre><code>## Warning: Using alpha for a discrete variable is not advised.</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code># Right
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, shape = class))</code></pre>
+<pre><code>## Warning: The shape palette can deal with a maximum of 6 discrete values because
+## more than 6 becomes difficult to discriminate; you have 7. Consider
+## specifying shapes manually if you must have them.</code></pre>
+<pre><code>## Warning: Removed 62 rows containing missing values (geom_point).</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-5-2.png" width="672" /> -mapping class to alpha controls transperancy of points -mapping class to shape controls shape of points -you use aes() to associate the name of the aesthetic with a variable to display -+ signs have to be at end of line not the beginning (check above)</p>
+<p>-facets: sunplots that each display one subset of data</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ class, nrow = 2)</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-6-1.png" width="672" /> -add facet_grid() to plot on combination of 2 variables -use a . instead of a variable name if u don’t wanna facet in row/column dimension</p>
+<p>-geom: geometrical object that plot uses to represent data</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  geom_smooth(mapping = aes(x = displ, y = hwy))</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-7-1.png" width="672" /> -lets you display multiple geoms in same plot</p>
+<pre class="r"><code>ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, colour = cut))</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = cut))</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-8-2.png" width="672" /> -allows you to change colors on bar graphs</p>
+<p>-coord_flip() switches the x and y axes -&gt; useful for horizontal box plots</p>
+</div>
+<div id="graphics-for-communication-article-notes" class="section level1">
+<h1>Graphics for Communication Article Notes:</h1>
+<p>-Label, Annotations, Scales</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth(se = FALSE) +
+  labs(title = &quot;Fuel efficiency generally decreases with engine size&quot;)</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-9-1.png" width="672" /> -labs() function lets you add labels (used to add title here)^ -plot title should summarize main finding instead of saying vs</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    x = &quot;Engine displacement (L)&quot;,
+    y = &quot;Highway fuel economy (mpg)&quot;,
+    colour = &quot;Car type&quot;
+  )</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-10-1.png" width="672" /> -labs() also let’s you replace axis &amp; legend titles</p>
+<pre class="r"><code>best_in_class &lt;- mpg %&gt;%
+  group_by(class) %&gt;%
+  filter(row_number(desc(hwy)) == 1)
+
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_text(aes(label = model), data = best_in_class)</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-11-1.png" width="672" /> -pulls out most efficient car in each class w/ dplyr then labels it -text makes it a little messy with the overlap</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_label(aes(label = model), data = best_in_class, nudge_y = 2, alpha = 0.5)</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-12-1.png" width="672" /> -using label puts rectangles behind text ``{r} ggplot(mpg, aes(displ, hwy)) + geom_point(aes(colour = class)) + geom_point(size = 3, shape = 1, data = best_in_class) + ggrepel::geom_label_repel(aes(label = model), data = best_in_class)</p>
+<pre><code>-not working but ggrepel package automatically adjusts labels to remove overlap
+
+
+```r
+label &lt;- mpg %&gt;%
+  summarise(
+    displ = max(displ),
+    hwy = max(hwy),
+    label = &quot;Increasing engine size is \nrelated to decreasing fuel economy.&quot;
+  )
+
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  geom_text(aes(label = label), data = label, vjust = &quot;top&quot;, hjust = &quot;right&quot;)</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-13-1.png" width="672" /> -computes maximum value of x and y</p>
+<pre class="r"><code>label &lt;- tibble(
+  displ = Inf,
+  hwy = Inf,
+  label = &quot;Increasing engine size is \nrelated to decreasing fuel economy.&quot;
+)
+
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  geom_text(aes(label = label), data = label, vjust = &quot;top&quot;, hjust = &quot;right&quot;)</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-14-1.png" width="672" /> -moves text exactly on borders of plot using +Inf and -Inf</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class))</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-15-1.png" width="672" /> -ggplot2 atuomatically adds scales for you -breaks controls position of ticks or values associated w/ keys -labels control text associated w/ each tick/key -breaks &amp; lablels can also control appearance of legends -breaks can be used when there’s relatively little data &amp; want to highlight exactly where observations occur</p>
+<pre class="r"><code>presidential %&gt;%
+  mutate(id = 33 + row_number()) %&gt;%
+  ggplot(aes(start, id)) +
+    geom_point() +
+    geom_segment(aes(xend = end, yend = id)) +
+    scale_x_date(NULL, breaks = presidential$start, date_labels = &quot;&#39;%y&quot;)</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>-theme() setting can be used to control overall position of legend</p>
+<pre class="r"><code>base &lt;- ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class))
+
+base + theme(legend.position = &quot;left&quot;)</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<pre class="r"><code>base + theme(legend.position = &quot;top&quot;)</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
+<pre class="r"><code>base + theme(legend.position = &quot;bottom&quot;)</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-17-3.png" width="672" /></p>
+<pre class="r"><code>base + theme(legend.position = &quot;right&quot;) # the default</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-17-4.png" width="672" /> -legend.position = “none” would remove the legend</p>
+<p>replacing a scale:</p>
+<pre class="r"><code>ggplot(diamonds, aes(carat, price)) +
+  geom_bin2d()</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(diamonds, aes(log10(carat), log10(price))) +
+  geom_bin2d()</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-18-2.png" width="672" /> -here a log transformation performed -slight problem: axis labels changed</p>
+<pre class="r"><code>ggplot(diamonds, aes(carat, price)) +
+  geom_bin2d() + 
+  scale_x_log10() + 
+  scale_y_log10()</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-19-1.png" width="672" /> -axis now have original labels</p>
+<pre class="r"><code>ggplot(mpg, mapping = aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth() +
+  coord_cartesian(xlim = c(5, 7), ylim = c(10, 30))</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<pre class="r"><code>mpg %&gt;%
+  filter(displ &gt;= 5, displ &lt;= 7, hwy &gt;= 10, hwy &lt;= 30) %&gt;%
+  ggplot(aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth()</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-20-2.png" width="672" /> -3 ways to control plot limits -adjusting what data plotted -setting limits in each scale -setting xlim &amp; ylim in coord_cartesian()</p>
+<p>themes:</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth(se = FALSE) +
+  theme_bw()</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignment4_files/figure-html/unnamed-chunk-21-1.png" width="672" /> -allows you to customize non-data elements in plot w/ a theme</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
