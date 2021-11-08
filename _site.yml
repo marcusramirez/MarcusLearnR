@@ -10,8 +10,14 @@ navbar:
       href: Assignment1.html
     - text: "Assignment 2"
       href: Assignment2.html
+    - text: "Assignment 3"
+      href: Assignment3.html
+    - text: "Assignment 4"
+      href: Assignment4.html
     - text: "Exam 1"
       href: Exam1.html
+    - text: "Exam 2"
+      href: Exam2.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"
