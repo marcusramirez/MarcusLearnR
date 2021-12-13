@@ -8,7 +8,7 @@ output:
 ---
 
 
-**Collaborators:** Jair Jean-Gilles
+**Collaborators:** Jair Jean-Gillesx
 Akshat Shah
 Abraham Sandoval Iñiguez
 Marcus Ramirez
