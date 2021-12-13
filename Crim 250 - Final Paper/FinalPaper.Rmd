@@ -19,7 +19,6 @@ library(usmap)
 library(ggplot2)
 
 table12 <- read.csv(file="table12.csv")
-
 table11 <- read.csv(file="table11.csv")
 summary(table12)
 
