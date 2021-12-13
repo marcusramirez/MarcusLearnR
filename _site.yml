@@ -20,4 +20,6 @@ navbar:
       href: Exam2.html
     - text: "Links"
       href: Links.html
+    - text: "Final Paper"
+      href: FinalPaper.html
 output_dir: "docs"

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Assignment-2.knit</title>
+
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Marcus' Site</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Assignments.html">Assignments</a>
+</li>
+<li>
+  <a href="Assignment1.html">Assignment 1</a>
+</li>
+<li>
+  <a href="Assignment2.html">Assignment 2</a>
+</li>
+<li>
+  <a href="Assignment3.html">Assignment 3</a>
+</li>
+<li>
+  <a href="Assignment4.html">Assignment 4</a>
+</li>
+<li>
+  <a href="Exam1.html">Exam 1</a>
+</li>
+<li>
+  <a href="Exam2.html">Exam 2</a>
+</li>
+<li>
+  <a href="Links.html">Links</a>
+</li>
+<li>
+  <a href="FinalPaper.html">Final Paper</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="title-assignment-2" class="section level1">
+<h1>Title: Assignment 2</h1>
+</div>
+<div id="subtitle-crim-250-statistics-for-the-social-sciences" class="section level1">
+<h1>Subtitle: Crim 250: Statistics for the Social Sciences</h1>
+</div>
+<div id="name-marcus-ramirez" class="section level1">
+<h1>Name: Marcus Ramirez</h1>
+</div>
+<div id="date-09232021" class="section level1">
+<h1>Date: 09/23/2021</h1>
+</div>
+<div id="instructions-copy-your-code-paste-it-into-a-word-document-and-turn-it-into-canvas.-you-can-turn-in-a-.docx-or-.pdf-file.-show-any-eda-graphical-or-non-graphical-you-have-used-to-come-to-this-conclusion." class="section level1">
+<h1>Instructions: Copy your code, paste it into a Word document, and turn it into Canvas. You can turn in a .docx or .pdf file. Show any EDA (graphical or non-graphical) you have used to come to this conclusion.</h1>
+</div>
+<div id="problem-1-load-data" class="section level1">
+<h1>Problem 1: Load data</h1>
+</div>
+<div id="set-your-working-directory-to-the-folder-where-you-downloaded-the-data." class="section level1">
+<h1>Set your working directory to the folder where you downloaded the data.</h1>
+<p>setwd(“/Users/cruzllano/Documents/R/”) dat2 &lt;- read_csv(“~/Downloads/dat.nsduh.small.csv”) # Read the data dat2 &lt;- read_csv(“~/Downloads/dat.nsduh.small.csv”)</p>
+</div>
+<div id="what-are-the-dimensions-of-the-dataset" class="section level1">
+<h1>What are the dimensions of the dataset?</h1>
+<p>dim(dat2) Answer: The dimensions of the dataset are 171 by 7. names(dat)</p>
+<div id="problem-2-variables" class="section level2">
+<h2>Problem 2: Variables</h2>
+</div>
+</div>
+<div id="describe-the-variables-in-the-dataset." class="section level1">
+<h1>Describe the variables in the dataset.</h1>
+<p>The varibles in this dataset are mjage, cigever, alcever, AGE2, sexatract, speakengl, irsex. Mjage describes how old someone was when they first used marijuana or hashish. Cigever describes how old someone was when they first started smoking cigarettes everyday. Alcever describes how old someone was when they first tried alcochol. AGE2 describes the final edited age of the respondant. Sexatract describes a respondant’s sexual orientation. Speakengl describes how well someone speaks English. Irsex describes someone’s gender. # What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data? This dataset is about the age at which individuals of varying ages, sexual orientations, genders, and English proficiencies first began experimenting or using particular drugs (including but not limited to marijuana, cigarettes, and alcohol). The data was collected by the National Survey on Drug Use and Health. This is a simple random sample as the first 1000 cases were chooseCRANmirror( The purpose of this generating this data was to form more general conclusions about the population from the sample, pertaining to drug use. This way, the NSDUH can better predict where to provide support prevention and monitor substance use trends.</p>
+<div id="problem-3-age-and-gender" class="section level2">
+<h2>Problem 3: Age and gender</h2>
+</div>
+</div>
+<div id="what-is-the-age-distribution-of-the-sample-like-make-sure-you-read-the-codebook-to-know-what-the-variable-values-mean." class="section level1">
+<h1>What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.</h1>
+<p>summary(dat1)</p>
+<pre class="r"><code>hist(dat1$AGE2, main=&quot;Histogram of AGE2&quot;, xlab=&quot;Code&quot;, ylab=&quot;Frequency&quot;)</code></pre>
+<p><img src="Assignment-2_files/figure-html/Histogram-1.png" width="672" /> The age distribution is skewed left with older respondents tending to be more common. The median of the distribution is 14 which indicates respondents between 30 and 34 years old in the codebook. The mean is about 13 which indicates respondants between 26 and 29 years old in the codebook. # Do you think this age distribution representative of the US population? Why or why not? This age distribution seems representative of the US population because the median would indicate about half of the respondents are under 30 years old and half are above 34 years old (30 is typically defined as middle-aged). Also, the extremes of the data (12 years old and 65 years or older) are the lowest represented in the histogram which would make sense. # Is the sample balanced in terms of gender? If not, are there more females or males?</p>
+<pre class="r"><code>table(dat1$irsex)</code></pre>
+<pre><code>## 
+##   1   2 
+## 210 216</code></pre>
+<p>The sample is nearly balanced in terms of gender, there are 6 more females than males in the sample, however. # Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?</p>
+<pre class="r"><code>tab.agesex &lt;- table(dat1$irsex, dat1$AGE2)
+barplot(tab.agesex,
+        main = &quot;Stacked barchart&quot;,
+        xlab = &quot;Age category&quot;, ylab = &quot;Frequency&quot;,
+        legend.text = rownames(tab.agesex),
+        beside = TRUE) # Stacked bars (default)</code></pre>
+<p><img src="Assignment-2_files/figure-html/unnamed-chunk-2-1.png" width="672" /> From this plot I can conclude that older respondants, particularly those 19 years and older were typically more likely to be female than male. In comparison, those younger than 19 years old were more likely to be male then female.</p>
+<div id="problem-4-substance-use" class="section level2">
+<h2>Problem 4: Substance use</h2>
+</div>
+</div>
+<div id="for-which-of-the-three-substances-included-in-the-dataset-marijuana-alcohol-and-cigarettes-do-individuals-tend-to-use-the-substance-earlier" class="section level1">
+<h1>For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?</h1>
+<div id="problem-5-sexual-attraction" class="section level2">
+<h2>Problem 5: Sexual attraction</h2>
+<pre class="r"><code>summary(dat1)</code></pre>
+<pre><code>##      mjage          cigever         alcever           AGE2      
+##  Min.   : 7.00   Min.   :1.000   Min.   :1.000   Min.   : 1.00  
+##  1st Qu.:14.00   1st Qu.:1.000   1st Qu.:1.000   1st Qu.:11.00  
+##  Median :16.00   Median :1.000   Median :1.000   Median :14.00  
+##  Mean   :17.08   Mean   :1.256   Mean   :1.028   Mean   :12.77  
+##  3rd Qu.:18.00   3rd Qu.:2.000   3rd Qu.:1.000   3rd Qu.:15.00  
+##  Max.   :45.00   Max.   :2.000   Max.   :2.000   Max.   :17.00  
+##    sexatract       speakengl          irsex      
+##  Min.   : 1.00   Min.   : 1.000   Min.   :1.000  
+##  1st Qu.: 1.00   1st Qu.: 1.000   1st Qu.:1.000  
+##  Median : 1.00   Median : 1.000   Median :2.000  
+##  Mean   :10.09   Mean   : 1.758   Mean   :1.507  
+##  3rd Qu.: 2.00   3rd Qu.: 1.000   3rd Qu.:2.000  
+##  Max.   :99.00   Max.   :98.000   Max.   :2.000</code></pre>
+<p>According to the data, individuals tend to use marijuana the earliest.</p>
+</div>
+</div>
+<div id="what-does-the-distribution-of-sexual-attraction-look-like-is-this-what-you-expected" class="section level1">
+<h1>What does the distribution of sexual attraction look like? Is this what you expected?</h1>
+<pre class="r"><code>table(dat1$sexatract)</code></pre>
+<pre><code>## 
+##   1   2   3   4   5   6  97  98  99 
+## 311  34  22   9  11   1   3   1  34</code></pre>
+<p>The distribution is skewed right which is what I expected since only being attracted to the opposite sex (code 1) is most common. As the code numbers increased from 1 to 6, there was less strict of an attraction to the opposite sex and more openness to attraction to the same sex, so this distribution is consistent with my expectations of bisexuality and homosexuality not being as common. # What is the distribution of sexual attraction by gender?</p>
+<pre class="r"><code>tab.agesex &lt;- table(dat1$irsex, dat1$sexatract)
+barplot(tab.agesex,
+        main = &quot;Comparing Sexual Attraction &amp; Gender&quot;,
+        xlab = &quot;Sexual Attraction Category&quot;, ylab = &quot;Frequency&quot;,
+        legend.text = rownames(tab.agesex),
+        beside = TRUE) # Stacked bars (default)</code></pre>
+<p><img src="Assignment-2_files/figure-html/unnamed-chunk-5-1.png" width="672" /> It looks like the highest distribution is associated with respondents only attracted to the opposite sex. Females tend to show more variablity in sexual attraction than males.</p>
+<div id="problem-6-english-speaking" class="section level2">
+<h2>Problem 6: English speaking</h2>
+</div>
+</div>
+<div id="what-does-the-distribution-of-english-speaking-look-like-in-the-sample-is-this-what-you-might-expect-for-a-random-sample-of-the-us-population" class="section level1">
+<h1>What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?</h1>
+</div>
+<div id="are-there-more-english-speaker-females-or-males" class="section level1">
+<h1>Are there more English speaker females or males?</h1>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
